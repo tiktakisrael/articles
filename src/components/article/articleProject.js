@@ -7,7 +7,6 @@ const ArticleProject = function(props){
 
     let [swich, setSwich] = useState(true);
     const toSecondPage = ()=>{
-        console.log(swich);
         setSwich(swich = false)
     }
     const toFirstPage = ()=>{
