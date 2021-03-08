@@ -20,25 +20,28 @@ const InputBody = styled.input`
 const CreateArticle = function(props){
 
     let [array, setArray ] = useState([]);
-    const addArticle = ()=>{
-        array.push({
-            title:document.querySelector('.title').value,
-            nameArt:document.querySelector('.nameArt').value,
-            textBody:document.querySelector('.textBody').value
-        });
-        setArray(
-            array
-        );
-        console.log(array);
-    }
+const addArticle = ()=>{
+    array.push({
+        title:document.querySelector('.title').value,
+        nameArt:document.querySelector('.nameArt').value,
+        textBody:document.querySelector('.textBody').value
+    });
+    setArray(
+        array
+    );
+    console.log(array);
+}
+   
+    
+    
     return(
         <Div className= 'createArticle'>
             {/* <p>{array}</p> */}
-            <span>title</span>
+            <span>כותרת</span>
             <Input className='title'></Input>
-            <span>nameArt</span>
+            <span>שם הכותב</span>
             <Input className='nameArt'></Input>
-            <span>textBody</span>
+            <span>תוכן המאמר</span>
             <InputBody className='textBody'></InputBody>
             <SendButton addArticle={addArticle} />
         </Div>
