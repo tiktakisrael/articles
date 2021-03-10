@@ -1,9 +1,9 @@
 import {useState} from 'react';
-import PostArticle from './mainPage/postArticle';
-import CreateArticle from './secondPage/createArticle';
+import PostArticle from '../screens/postArticle/postArticle';
+import CreateArticle from '../screens/createArticle/createArticle';
 
 
-const ArticleProject = function(props){
+const ArticleProject = function(){
 
     let [swich, setSwich] = useState(true);
     const toSecondPage = ()=>{
