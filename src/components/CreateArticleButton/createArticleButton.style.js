@@ -22,8 +22,8 @@ const Button = styled.button`
     };
 `
 
-const CreateArticleButton = function(props){
-    return(
-        <Button className= 'toSecondPage' onClick= { props.toSecondPage}>צור פוסט</Button>        
-    )}
-export default CreateArticleButton;
+const Styled = {
+    Button
+}
+
+export default Styled;

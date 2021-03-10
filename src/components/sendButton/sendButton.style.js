@@ -23,9 +23,8 @@ font-weight: bold;
 position:relative;
 right: 200px;
 `
-const SendButton = function({addArticle}){
-    return(
-        <Button className='sendButton' onClick={addArticle}>שלח</Button>
-    )
+
+const Styled = {
+    Button
 }
-export default SendButton;
+export default Styled;

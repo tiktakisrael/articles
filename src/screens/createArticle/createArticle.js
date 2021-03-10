@@ -1,23 +1,6 @@
 import { useState } from "react";
-import SendButton from "./sendButton";
-import styled from 'styled-components';
-
-const Div = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 0px 0px 0px;
-`
-const Input = styled.input.attrs({multiline:true})`
-    width: 500px;
-    height: 50px;
-    text-align: center;
-`
-const InputBody = styled.input.attrs({multiline:true})`
-    width: 500px;
-    height: 200px;
-    text-align: center;
-`
+import SendButton from "../../components/sendButton/sendButton";
+import Styled from './createArticle.style'
 const CreateArticle = function(props){
     const addArticle = ()=>{
        const art = [
@@ -26,6 +9,18 @@ const CreateArticle = function(props){
             textBodyInput
         ];
         console.log(art);
+        fetch('http://localhost:3005/', {
+            method: "POST",
+            headers: {"Content-type": "application/json;charset=UTF-8"},
+            body: JSON.stringify({
+                titleInput,
+                nameInput,
+                textBodyInput
+            })
+        })
+        .then(response => response.json()) 
+        .then(json => console.log(json))
+        .catch(err => console.log(err));
         props.toFirstPage();
     }
 
@@ -46,18 +41,18 @@ const CreateArticle = function(props){
       console.log(textBodyInput);
     };
     return(
-        <Div className= 'createArticle'>
+        <Styled.Div className= 'createArticle'>
             <span>כותרת</span>
-            <Input className='title'  placeholder="Enter title" 
-                onChange = {handleTitleInput}></Input>
+            <Styled.Input className='title'  placeholder="Enter title" 
+                onChange = {handleTitleInput}></Styled.Input>
             <span>שם הכותב</span>
-            <Input className='nameArt'  placeholder="Enter name"
-                onChange = {handleNameInput} ></Input>
+            <Styled.Input className='nameArt'  placeholder="Enter name"
+                onChange = {handleNameInput} ></Styled.Input>
             <span>תוכן המאמר</span>
-            <InputBody className='textBody'  placeholder="Enter the Article" 
-                onChange = {handleTextBodyInput}></InputBody>
+            <Styled.InputBody className='textBody'  placeholder="Enter the Article" 
+                onChange = {handleTextBodyInput}></Styled.InputBody>
             <SendButton addArticle={addArticle} />
-        </Div>
+        </Styled.Div>
     )
 }
 export default CreateArticle;
